@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Регистрация</title>
+</head>
+<body>
+<h2>Регистрация</h2>
+<form th:action="@{/auth/register}" th:object="${user}" method="post">
+    <label>Потребителско име: <input type="text" th:field="*{username}"/></label><br/>
+    <label>Имейл: <input type="email" th:field="*{email}"/></label><br/>
+    <label>Парола: <input type="password" th:field="*{password}"/></label><br/>
+    <button type="submit">Регистрирай се</button>
+</form>
+
+<div th:if="${#fields.hasErrors('*')}">
+    <p style="color: red;">Проверете грешките във формата.</p>
+</div>
+</body>
+</html>
